@@ -145,7 +145,8 @@ export default {
                 boundary:'',
                 valid_id:'',
                 kind_id:'',
-                user_type:''
+                user_type:'',
+                valid_id_img:null
             },
             ids:[],
             cities:[],
@@ -206,6 +207,7 @@ export default {
             const file = e.target.files[0]
             this.imageUrl = URL.createObjectURL(file)
             this.register_data.valid_id = file.name
+            this.register_data.valid_id_img = e.target.files[0]
         },
 
         //return to home page
@@ -234,19 +236,29 @@ export default {
         //Send data to server side
         register(){
             axios.get('/sanctum/csrf-cookie').then(response => {
-                axios.post('/register',{
-                    first_name: this.register_data.first_name,
-                    last_name: this.register_data.surname,
-                    email: this.register_data.email,
-                    password: this.register_data.password,
-                    password_confirmation: this.register_data.password,
-                    location: this.register_data.location,
-                    boundary: this.register_data.boundary,
-                    kind_id: this.register_data.kind_id,
-                    valid_id:  this.register_data.valid_id,
-                    user_type: this.register_data.user_type,
-                    is_approved: 0    
-                }).then(response => {
+
+                const config = {
+                    headers: { 'content-type': 'multipart/form-data' }
+                }
+                
+                let formData = new FormData()
+
+                formData.append('valid_id_img', this.register_data.valid_id_img)
+                formData.append('first_name', this.register_data.first_name)
+                formData.append('last_name', this.register_data.surname)
+                formData.append('email', this.register_data.email)
+                formData.append('password', this.register_data.password)
+                formData.append('password_confirmation', this.register_data.password)
+                formData.append('location', this.register_data.location)
+                formData.append('boundary', this.register_data.boundary)
+                formData.append('valid_id_img', this.register_data.valid_id_img)
+                formData.append('kind_id', this.register_data.kind_id)
+                formData.append('valid_id', this.register_data.valid_id)
+                formData.append('user_type', this.register_data.user_type)
+                formData.append('is_approved', 0)
+
+                axios.post('/register', formData, config
+                ).then(response => {
                    this.registerSuccess = true
                    this.register_data.user_type = ''
                    this.register_data.first_name = ''
@@ -261,10 +273,11 @@ export default {
                     // this.validationErrors = err.response.data.errors
                     //not fixed so alternative way
                     this.registerValidation = 'The Email is already taken.'
-                    console.log(err.message);
+                    // console.log(err.message);
                 })
             }).catch(err => {
                 console.log('sanctum error')
+                // console.log(err.message)
             })
         },
         login(){

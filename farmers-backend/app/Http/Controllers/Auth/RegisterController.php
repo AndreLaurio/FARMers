@@ -71,6 +71,10 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $request = request();
+        $valid_id_path = time().'.'.$request->file('valid_id_img')->getClientOriginalExtension();
+        $request->file('valid_id_img')->move(public_path('../../farmers-frontend/src/assets/storage/images/valid_ids/'), $valid_id_path);
+
         return User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
@@ -78,7 +82,7 @@ class RegisterController extends Controller
             'location' => $data['location'],
             'boundary' => $data['boundary'],
             'valid_id_type_id' => $data['kind_id'],
-            'valid_id_path' => $data['valid_id'],
+            'valid_id_path' => $valid_id_path,
             'user_type_id' => $data['user_type'],
             'is_approved' => $data['is_approved'],
             'password' => Hash::make($data['password']),
