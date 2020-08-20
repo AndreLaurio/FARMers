@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Products/>
+        <ManageProducts/>
         <v-main>
             <SellerDashboard/>
         </v-main>
@@ -10,11 +10,11 @@
 <script>
 
 import SellerDashboard from '@/components/seller/SellerDashboard.vue'
-import Products from '@/components/seller/Products.vue'
+import ManageProducts from '@/components/seller/ManageProducts.vue'
 
 export default {
     components:{
-        SellerDashboard, Products
+        SellerDashboard, ManageProducts
     }
 }
 </script>
