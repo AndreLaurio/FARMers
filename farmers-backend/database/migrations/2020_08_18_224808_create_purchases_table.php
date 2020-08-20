@@ -13,7 +13,7 @@ class CreatePuchasesTable extends Migration
      */
     public function up()
     {
-        Schema::create('puchases', function (Blueprint $table) {
+        Schema::create('purchases', function (Blueprint $table) {
             $table->id('purchase_id');
             $table->bigInteger('product_id')->unsigned();
             $table->bigInteger('buyer_id')->unsigned();

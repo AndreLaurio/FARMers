@@ -15,7 +15,8 @@ class SeedMeasurementsTable extends Migration
     {
         $data = array(
             array('measurement' => 'Sack'),
-            array('measurement' => 'Kilo')
+            array('measurement' => 'Kilo'),
+            array('measurement' => 'Thousand Metric Tons')
         );
 
         DB::table('measurements')->insert($data);

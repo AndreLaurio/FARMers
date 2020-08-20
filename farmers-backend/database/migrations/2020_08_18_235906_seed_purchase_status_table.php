@@ -16,7 +16,8 @@ class SeedPurchaseStatusTable extends Migration
         $data = array(
             array('purchase_status' => 'On delivery'),
             array('purchase_status' => 'Delivery Hub - Truck Delivery'),
-            array('purchase_status' => 'On Process - Seller Shipping Product')
+            array('purchase_status' => 'On Process - Seller Shipping Product'),
+            array('purchase_status' => 'Delivered')
         );
 
         DB::table('purchase_status')->insert($data);
