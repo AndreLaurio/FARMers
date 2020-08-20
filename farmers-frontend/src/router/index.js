@@ -8,11 +8,10 @@ import AdminArticles from '../views/admin/AdminArticles'
 import AdminNews from '../views/admin/AdminNews'
 
 import Seller from '../views/seller/SellerHome'
-import SellerProducts from '../views/seller/SellerProducts'
-
 
 import Buyer from '../views/buyer/BuyerHome'
-
+import BuyerNews from '../views/buyer/BuyerNews'
+import BuyerArticles from '../views/buyer/BuyerArticles'
 
 Vue.use(VueRouter)
 
@@ -56,6 +55,16 @@ Vue.use(VueRouter)
     path:'/admin/manage-news',
     name: 'AdminNews',
     component: AdminNews
+  },
+  {
+    path: '/buyer/news',
+    name: 'BuyerNews',
+    component: BuyerNews
+  },
+  {
+    path: '/buyer/articles',
+    name: 'BuyerArticles',
+    component: BuyerArticles
   }
 ]
 

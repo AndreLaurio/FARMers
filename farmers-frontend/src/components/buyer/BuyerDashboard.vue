@@ -14,7 +14,7 @@
                 </v-list> 
                 <v-list-item link>
                     <v-list-item-action>
-                        <v-icon color="green darken-3">mdi-home</v-icon>
+                        <v-icon color="green accent-4">mdi-home</v-icon>
                     </v-list-item-action>
                     <v-list-item-content>
                         Home
@@ -26,6 +26,14 @@
                     </v-list-item-action>
                     <v-list-item-content>
                         Profile
+                    </v-list-item-content>
+                </v-list-item>
+                  <v-list-item link v-on:click="showOrders">
+                    <v-list-item-action>
+                        <v-icon color="green accent-4">mdi-cart</v-icon>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                        Orders
                     </v-list-item-content>
                 </v-list-item>
                 <v-list-item link v-on:click="logout">
@@ -42,6 +50,10 @@
         <v-app-bar app color="green accent-4" dark>
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
             <v-toolbar-title class="pop">FARMETS</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <h3 class="mr-12 linking">Stock Market</h3>
+            <h3 class="mr-12 linking" @click="userArticles">Articles</h3>
+            <h3 class="mr-12 linking" @click="userNews">News</h3>
         </v-app-bar>
     </nav>
 </template>
@@ -50,6 +62,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 .pop{
     font-family: 'Poppins', sans-serif;
+}
+.linking{
+    cursor: pointer;
 }
 </style>
 
@@ -83,6 +98,15 @@ export default {
             axios.post('/logout').then(response => {
                 this.$router.push({ name: 'Index' })
             })
+        },
+        showOrders(){
+
+        },
+        userNews(){
+            this.$router.push({ name: 'BuyerNews' })
+        },
+        userArticles(){
+            this.$router.push({ name: 'BuyerArticles'})
         }
     }
 }
