@@ -23,7 +23,7 @@ class ProductController extends Controller
         $product->min_buyable_stocks = $request->input('min_buyable_stocks');
 
         $product->product_img_path = time().'.'.$request->file('product_img')->getClientOriginalExtension();
-        $request->file('product_img')->move(public_path('storage/images/products'), $product->product_img_path);
+        $request->file('product_img')->move(public_path('../../farmers-frontend/src/assets/storage/images/products'), $product->product_img_path);
 
         $product->save();
 

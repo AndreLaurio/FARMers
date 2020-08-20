@@ -56,9 +56,9 @@
                 </v-dialog>
            </v-flex>
 
-            <v-row justify="left" class="mt-10">
+            <v-row class="mt-10">
                 <v-card v-for="product in products" :key="product.product_id" class="ml-5 mb-5">
-                    <div class="cardProductImage" v-bind:style="{ backgroundImage: 'url(../../../public/images/products/' + product.product_img_path + ')' }"></div>
+                    <div class="cardProductImage" v-bind:style="{ backgroundImage: 'url(../src/assets/storage/images/products/' + product.product_img_path + ')' }"></div>
                     <div class="text-center mt-5 mb-5">
                         {{product.product_name}} <br>
                         ₱ {{product.price}}<br> <br>
