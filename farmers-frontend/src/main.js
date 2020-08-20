@@ -4,6 +4,9 @@ import router from './router'
 import vuetify from './plugins/vuetify'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import VueCurrencyInput from 'vue-currency-input'
+ 
+Vue.use(VueCurrencyInput)
 
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
