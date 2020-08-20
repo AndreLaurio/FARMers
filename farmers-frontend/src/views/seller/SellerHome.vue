@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Seller View</h1>
+        <UserHome/>
         <v-main>
             <SellerDashboard/>
         </v-main>
@@ -9,10 +9,12 @@
 
 <script>
 import SellerDashboard from '@/components/seller/SellerDashboard'
+import UserHome from '@/components/UserHome.vue'
+
 
 export default {
     components:{
-        SellerDashboard
+        SellerDashboard, UserHome
     }    
 }
 </script>

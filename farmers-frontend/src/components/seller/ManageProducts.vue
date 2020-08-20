@@ -7,9 +7,9 @@
             </v-flex>
 
             <v-flex md12 xs12 class="text-right">
-                <v-dialog v-model="addProductDialog" max-width="600">
+                <v-dialog v-model="addProductDialog" max-width="800">
                     <template v-slot:activator="{ on, attrs }">
-                    <v-btn class="primary" v-bind="attrs" v-on="on"> Add Product </v-btn>
+                    <v-btn rounded class="success"  v-bind="attrs" v-on="on"> <v-icon size="17" class="pr-1">mdi-plus-thick</v-icon> Add Product </v-btn>
                     </template>
                     <v-card class="rounded-xl">
                         
@@ -23,7 +23,9 @@
                                             <img v-if="imageUrl" :src="imageUrl" />
                                         </div>
                                         <br>
-                                        <input type="file" @change="previewInsertedImg"/>
+                                        <input type="file" @change="previewInsertedImg" class="mb-12"/>
+                                        <v-btn rounded class="success mb-5 mt-12" @click="createProduct">Add Product</v-btn>
+                                        <div class="valsuccess">{{successAlert}}</div>
                                     </v-card-text>
                                 </v-col>
 
@@ -49,9 +51,9 @@
                             </v-row>
                         </v-container>
 
-                        <v-card-actions class="justify-center">
+                        <!-- <v-card-actions class="justify-center">
                             <v-btn class="primary mb-5" @click="createProduct">Add Product</v-btn>
-                        </v-card-actions>
+                        </v-card-actions> -->
                     </v-card>
                 </v-dialog>
            </v-flex>
@@ -59,13 +61,13 @@
             <v-row class="mt-10">
                 <v-card v-for="product in products" :key="product.product_id" class="ml-5 mb-5">
                     <div class="cardProductImage">
-                         <img :src="require(`../../assets/storage/images/products/${product.product_img_path}`)" class="previewImage">
+                         <img :src="require(`../../assets/storage/images/products/${product.product_img_path}`)" class="previewImage" width="300px" height="250px">
                     </div>
                     <div class="text-center mt-5 mb-5">
                         {{product.product_name}} <br>
                         ₱ {{product.price}}<br> <br>
                         <v-btn class="primary mr-5">Details</v-btn>
-                        <v-btn class="error">Remove</v-btn> <br> <br>
+                        <v-btn class="error" @click="removeProduct(product.product_id)">Remove</v-btn> <br> <br>
                         <v-btn class="primary">View Offers</v-btn>
                     </div>
                 </v-card>
@@ -76,6 +78,10 @@
 </template>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+.pop{
+    font-family: 'Poppins', sans-serif;
+}
 .cardProductImage {
     /* background-color: grey; */
     background-repeat: no-repeat;
@@ -96,6 +102,9 @@
   
 }
 
+.valsuccess{
+    color: green;
+}
 .previewImage img {
   max-width: 100%;
   max-height: 100%;
@@ -126,22 +135,32 @@ export default {
             user_id:'',
             imageUrl:null,
             product_img:null,
-            addProductDialog:false
+            addProductDialog:false,
+            successAlert:''
         }
     },
     mounted(){
-        this.getUserData(),
-        this.getProducts()
+        this.getOwnProducts()
+        this.getUserData()
     },
     methods:{
         getUserData(){
-            axios.get('/api/user').then(response =>{
+            axios.get('/api/user').then(response => {
                 this.user_id = response.data.user_id
             })
         },
-        getProducts(){
-            axios.get('/api/products').then(response => {
-                this.products = response.data
+        getOwnProducts(){
+            let id = this.user_id
+             axios.get('/api/user').then(response =>{
+                id = response.data.user_id
+                axios.get(`/api/products/${id}`).then(response => {
+                    this.products = response.data
+                })
+            })
+        },
+        removeProduct(product_id){
+            axios.delete(`/api/product/${product_id}`).then(response => {
+                this.getOwnProducts()
             })
         },
         createProduct(){
@@ -160,12 +179,15 @@ export default {
 
             axios.post('/api/product', formData, config
             ).then(response => {
-                this.products.push({
-                    product_name: this.product.product_name,
-                    description: this.product.description
-                })
+                // this.products.push({
+                //     product_name: this.product.product_name,
+                //     price : ,
+                //     product_img:
 
-                this.addProductDialog = false
+                // })
+                this.successAlert = 'Added Successfully'
+                window.location.reload()
+                // this.addProductDialog = false
             }).catch(err => {console.log(err)})
         },
         previewInsertedImg(e){

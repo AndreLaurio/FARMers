@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Admin View</h1>
+        <UserHome/>
         <v-main>
             <AdminDashboard/>
         </v-main>
@@ -9,10 +9,11 @@
 
 <script>
 import AdminDashboard from '@/components/admin/AdminDashboard.vue'
+import UserHome from '@/components/UserHome.vue'
 
 export default {
     components:{
-        AdminDashboard
+        AdminDashboard, UserHome
     }
 }
 </script>

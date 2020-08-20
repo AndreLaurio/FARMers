@@ -12,7 +12,7 @@
                         </div>
                     </v-list-item-content>
                 </v-list> 
-                <v-list-item link>
+                <v-list-item link @click="home">
                     <v-list-item-action>
                         <v-icon color="green accent-4">mdi-home</v-icon>
                     </v-list-item-action>
@@ -50,6 +50,10 @@
         <v-app-bar app color="green darken-3" dark>
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
             <v-toolbar-title class="pop">FARMVEST</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <h3 class="mr-12 linking">Stock Market</h3>
+            <h3 class="mr-12 linking" @click="userArticles">Articles</h3>
+            <h3 class="mr-12 linking" @click="userNews">News</h3>
         </v-app-bar>
     </nav>
 </template>
@@ -58,6 +62,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 .pop{
     font-family: 'Poppins', sans-serif;
+}
+.linking{
+    cursor: pointer;
 }
 </style>
 
@@ -95,8 +102,17 @@ export default {
         products(){
             const name = 'SellerProducts'
             
-            if (this.$route.name !== name)
+            // // if (this.$route.name !== name)
                 this.$router.push({ name: name })
+        },
+         userNews(){
+            this.$router.push({ name: 'SellerNews' })
+        },
+        userArticles(){
+            this.$router.push({ name: 'SellerArticles'})
+        },
+        home(){
+            this.$router.push({ name: 'Seller' })
         }
     }
 }

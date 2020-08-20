@@ -34,3 +34,5 @@ Route::delete('/news/{id}', 'NewsController@delete');
 
 Route::get('/products', 'ProductController@get');
 Route::post('/product', 'ProductController@post');
+Route::get('/products/{user_id}', 'ProductController@getOwnProduct');
+Route::delete('/product/{product_id}', 'ProductController@delete');
