@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Index from '../views/Index.vue'
-// import Admin from '../views/admin/AdminHome'
+import Admin from '../views/admin/AdminHome'
+import AdminApproval from '../views/admin/AdminApproval'
 // import Seller from '../views/seller/SellerHome'
 // import Buyer from '../views/buyer/BuyerHome'
-// import AdminApproval from '../views/admin/AdminApproval'
+
 
 Vue.use(VueRouter)
 
@@ -24,16 +25,16 @@ Vue.use(VueRouter)
   //   name: 'Buyer',
   //   component: Buyer
   // },
-  // {
-  //   path: '/admin',
-  //   name: 'Admin',
-  //   component: Admin
-  // },
-  // {
-  //   path:'/admin/approval',
-  //   name: 'AdminApproval',
-  //   component: AdminApproval
-  // }
+  {
+    path: '/admin',
+    name: 'Admin',
+    component: Admin
+  },
+  {
+    path:'/admin/approval',
+    name: 'AdminApproval',
+    component: AdminApproval
+  }
 ]
 
 const router = new VueRouter({

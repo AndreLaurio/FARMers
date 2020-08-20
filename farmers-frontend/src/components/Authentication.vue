@@ -259,7 +259,7 @@ export default {
                             }else if(user_type == 2){
                                 console.log('buyer')
                             }else if(user_type == 3){
-                                console.log('admin')
+                                this.$router.push({ name:'Admin'})
                             }
                         }
                     })
