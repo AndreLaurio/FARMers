@@ -257,7 +257,7 @@ export default {
                     // this.validationErrors = err.response.data.errors
                     //not fixed so alternative way
                     this.registerValidation = 'The Email is already taken.'
-                    console.log(this.register_data.kind_id)
+                    console.log(err.message);
                 })
             }).catch(err => {
                 console.log('sanctum error')
@@ -277,7 +277,7 @@ export default {
                             this.loginValidation = 'Your account is waiting for approval.'
                         }else{
                              if(user_type == 1){
-                                console.log('seller')
+                                this.$router.push({ name:'Seller'})
                             }else if(user_type == 2){
                                 console.log('buyer')
                             }else if(user_type == 3){

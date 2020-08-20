@@ -28,6 +28,14 @@
                         Profile
                     </v-list-item-content>
                 </v-list-item>
+                <v-list-item link v-on:click="products">
+                    <v-list-item-action>
+                        <v-icon color="green accent-4">mdi-spa</v-icon>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                        Products
+                    </v-list-item-content>
+                </v-list-item>
                 <v-list-item link v-on:click="logout">
                     <v-list-item-action>
                         <v-icon color="green accent-4">mdi-logout</v-icon>
@@ -83,6 +91,12 @@ export default {
             axios.post('/logout').then(response => {
                 this.$router.push({ name: 'Index' })
             })
+        },
+        products(){
+            const name = 'SellerProducts'
+            
+            if (this.$route.name !== name)
+                this.$router.push({ name: name })
         }
     }
 }
