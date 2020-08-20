@@ -18,6 +18,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/getidtypes' , 'RegisterDataController@getId');
+Route::get('/getcities' , 'RegisterDataController@getCity');
+
 Route::get('/admin/pending-account', 'AccountController@getPendingAccount');
 Route::put('/admin/approve-account/{user_id}', 'AccountController@approveAccount');
+
+Route::get('/article', 'ArticleController@get');
+Route::post('/article', 'ArticleController@post');
+Route::delete('/article/{id}', 'ArticleController@delete');
+
+Route::get('/news', 'NewsController@get');
+Route::post('/news', 'NewsController@post');
+Route::delete('/news/{id}', 'NewsController@delete');
 

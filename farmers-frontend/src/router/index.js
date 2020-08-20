@@ -3,8 +3,11 @@ import VueRouter from 'vue-router'
 import Index from '../views/Index.vue'
 import Admin from '../views/admin/AdminHome'
 import AdminApproval from '../views/admin/AdminApproval'
-// import Seller from '../views/seller/SellerHome'
-// import Buyer from '../views/buyer/BuyerHome'
+import AdminArticles from '../views/admin/AdminArticles'
+import AdminNews from '../views/admin/AdminNews'
+
+import Seller from '../views/seller/SellerHome'
+import Buyer from '../views/buyer/BuyerHome'
 
 
 Vue.use(VueRouter)
@@ -15,16 +18,16 @@ Vue.use(VueRouter)
     name: 'Index',
     component: Index
   },
-  // {
-  //   path: '/seller',
-  //   name: 'Seller',
-  //   component: Seller
-  // },
-  // {
-  //   path: '/buyer',
-  //   name: 'Buyer',
-  //   component: Buyer
-  // },
+  {
+    path: '/seller',
+    name: 'Seller',
+    component: Seller
+  },
+  {
+    path: '/buyer',
+    name: 'Buyer',
+    component: Buyer
+  },
   {
     path: '/admin',
     name: 'Admin',
@@ -34,6 +37,16 @@ Vue.use(VueRouter)
     path:'/admin/approval',
     name: 'AdminApproval',
     component: AdminApproval
+  },
+  {
+    path:'/admin/manage-articles',
+    name: 'AdminArticles',
+    component: AdminArticles
+  },
+  {
+    path:'/admin/manage-news',
+    name: 'AdminNews',
+    component: AdminNews
   }
 ]
 

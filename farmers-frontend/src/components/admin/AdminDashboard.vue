@@ -47,9 +47,13 @@
             </v-list>
         </v-navigation-drawer>
 
-        <v-app-bar app color="green accent-4" dark>
+        <v-app-bar app color="green darken-3" dark>
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
             <v-toolbar-title class="pop">FARMETS</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <h3 class="mr-12 linking">Stock Market</h3>
+            <h3 class="mr-12 linking" @click="openArticles">Articles</h3>
+            <h3 class="mr-12 linking" @click="openNews">News</h3>
         </v-app-bar>
     </nav>
 </template>
@@ -58,6 +62,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 .pop{
     font-family: 'Poppins', sans-serif;
+}
+.linking{
+    cursor: pointer;
 }
 </style>
 
@@ -94,6 +101,12 @@ export default {
         },
         accountApproval(){
             this.$router.push({ name: 'AdminApproval' })
+        },
+        openArticles(){
+            this.$router.push({ name: 'AdminArticles' })
+        },
+        openNews(){
+            this.$router.push({ name: 'AdminNews' })
         }
     }
 }

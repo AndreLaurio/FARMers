@@ -1,6 +1,6 @@
 <template>
     <div>
-        <ManageArticles/>
+        <ManageNews/>
         <v-main>
             <AdminDashboard/>
         </v-main>
@@ -9,11 +9,11 @@
 
 <script>
 import AdminDashboard from '@/components/admin/AdminDashboard.vue'
-import ManageArticles from '@/components/admin/ManageArticles.vue'
+import ManageNews from '@/components/admin/ManageNews.vue'
 
 export default {
     components:{
-        AdminDashboard, ManageArticles
+        AdminDashboard, ManageNews
     }
 }
 </script>

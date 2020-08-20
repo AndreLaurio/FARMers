@@ -18,9 +18,9 @@ class CreateArticlesTable extends Migration
             $table->bigInteger('author_id')->unsigned();
             $table->string('title');
             $table->longText('body');
-            $table->dateTime('date_published')->useCurrent();
+            $table->dateTime('created_at')->useCurrent();
             $table->bigInteger('updated_by')->nullable();
-            $table->dateTime('updated_on')->useCurrent();
+            $table->dateTime('updated_at')->useCurrent();
 
             $table->foreign('author_id')
                   ->references('user_id')->on('users');

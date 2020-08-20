@@ -26,7 +26,8 @@
                             <v-text-field v-model="register_data.password" label="Password" outlined :rules="[rules.required, rules.min]" counter hint="At least 8 characters" :append-icon="show_password ? 'mdi-eye' : 'mdi-eye-off'" :type="show_password ? 'text' : 'password'" @click:append="show_password = !show_password" required></v-text-field>
                         </div>
                         <div v-else-if="registration_p2">
-                            <v-text-field v-model="register_data.location" label="Location" outlined></v-text-field> 
+                            <!-- <v-text-field v-model="register_data.location" label="Location" outlined></v-text-field>  -->
+                            <v-select label="Location" dense outlined :items="cities" item-text="city" item-value="city_id" class="mt-3" v-model="register_data.location"></v-select>
                             <v-text-field v-model="register_data.boundary" label="Boundary" outlined></v-text-field> 
                             <div class="text-center">Note: You can change it anytime in your account.</div>
                         </div>
@@ -34,7 +35,7 @@
                             <div class="text-center">
                                 <h3>Valid ID</h3>
                                 <h5>Choose 1 Valid ID</h5>
-                                <v-select label="Kind of ID" dense outlined :items="ids" class="mt-3" v-model="register_data.kind_id"></v-select>
+                                <v-select label="Kind of ID" dense outlined :items="ids" item-text="valid_id_type" item-value="valid_id_type_id" class="mt-3" v-model="register_data.kind_id"></v-select>
                             </div>
                                 <input type="file" @change="previewInsertedImg"/>
                                     <div class="previewImage mt-5">
@@ -144,7 +145,8 @@ export default {
                 kind_id:'',
                 user_type:''
             },
-            ids:['SSS ID', 'VOTERS ID', 'EMPLOYEE ID', 'MUNICIPAL ID'],
+            ids:[],
+            cities:[],
             login_data:{
                 email:'',
                 password:''
@@ -172,7 +174,11 @@ export default {
             registerValidation:'',
             loginValidation:''
         }
-    },
+    },  
+        mounted(){
+            this.getIds()
+            this.getCities()
+        },
         methods:{
         //Manupulation of register/login side
         register_p2(){
@@ -200,10 +206,25 @@ export default {
 
         //return to home page
         returnIndex(){
-            this.registerSuccess = false
-            this.registration = false
-            this.registration_p2 = false
-            this.registration_p3 = false
+            // this.registerSuccess = false
+            // this.registration = false
+            // this.registration_p2 = false
+            // this.registration_p3 = false
+            // this.$router.push({ name:'Index' })
+            window.location.reload()
+        },
+
+        //Getting the types of id
+        getIds(){
+            axios.get('/api/getidtypes').then(response => {
+                this.ids = response.data
+            })
+        },
+
+        getCities(){
+            axios.get('/api/getcities').then(response => {
+                this.cities = response.data
+            })
         },
 
         //Send data to server side
@@ -236,6 +257,7 @@ export default {
                     // this.validationErrors = err.response.data.errors
                     //not fixed so alternative way
                     this.registerValidation = 'The Email is already taken.'
+                    console.log(this.register_data.kind_id)
                 })
             }).catch(err => {
                 console.log('sanctum error')
@@ -248,7 +270,7 @@ export default {
                     password: this.login_data.password
                 }).then(response => {
                     axios.get('/api/user').then(response =>{
-                        let user_type = response.data.user_type
+                        let user_type = response.data.user_type_id
                         let is_approved = response.data.is_approved
                         if(is_approved == 0){
                             //show that his account isn't approved yet

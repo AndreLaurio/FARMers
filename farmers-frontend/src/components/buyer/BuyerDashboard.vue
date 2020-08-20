@@ -14,7 +14,7 @@
                 </v-list> 
                 <v-list-item link>
                     <v-list-item-action>
-                        <v-icon color="green accent-4">mdi-home</v-icon>
+                        <v-icon color="green darken-3">mdi-home</v-icon>
                     </v-list-item-action>
                     <v-list-item-content>
                         Home

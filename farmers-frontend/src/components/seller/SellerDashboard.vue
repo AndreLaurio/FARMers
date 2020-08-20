@@ -39,7 +39,7 @@
             </v-list>
         </v-navigation-drawer>
 
-        <v-app-bar app color="green accent-4" dark>
+        <v-app-bar app color="green darken-3" dark>
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
             <v-toolbar-title class="pop">FARMETS</v-toolbar-title>
         </v-app-bar>
