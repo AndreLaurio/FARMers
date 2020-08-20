@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Index from '../views/Index.vue'
+
 import Admin from '../views/admin/AdminHome'
 import AdminApproval from '../views/admin/AdminApproval'
 import AdminArticles from '../views/admin/AdminArticles'
@@ -24,6 +25,11 @@ Vue.use(VueRouter)
     path: '/seller',
     name: 'Seller',
     component: Seller
+  },
+  {
+    path: '/seller/products',
+    name: 'SellerProducts',
+    component: SellerProducts
   },
   {
     path: '/buyer',

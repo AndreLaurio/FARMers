@@ -32,3 +32,4 @@ Route::get('/news', 'NewsController@get');
 Route::post('/news', 'NewsController@post');
 Route::delete('/news/{id}', 'NewsController@delete');
 
+Route::post('/product', 'ProductController@post');
