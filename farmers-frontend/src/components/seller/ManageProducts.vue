@@ -59,7 +59,7 @@
             <v-row class="mt-10">
                 <v-card v-for="product in products" :key="product.product_id" class="ml-5 mb-5">
                     <div class="cardProductImage">
-                         <img :src="require(`../assets//${product.photo_path}`)" width="300px" height="250px">
+                         <img :src="require(`../../assets/storage/images/products/${product.product_img_path}`)" width="250px" height="250px">
                     </div>
                     <div class="text-center mt-5 mb-5">
                         {{product.product_name}} <br>
