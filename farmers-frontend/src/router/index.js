@@ -8,6 +8,7 @@ import AdminArticles from '../views/admin/AdminArticles'
 import AdminNews from '../views/admin/AdminNews'
 
 import Seller from '../views/seller/SellerHome'
+import SellerProducts from '../views/seller/SellerProducts'
 
 import Buyer from '../views/buyer/BuyerHome'
 import BuyerNews from '../views/buyer/BuyerNews'
