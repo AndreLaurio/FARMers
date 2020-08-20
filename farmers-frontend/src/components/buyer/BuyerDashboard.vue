@@ -21,7 +21,7 @@
                     </v-list-item-content>
                 </v-list-item>
                 <!-- <v-list-item link>
-                    <v-list-item-action>
+                <v-list-item-action>
                         <v-icon color="green accent-4">mdi-face</v-icon>
                     </v-list-item-action>
                     <v-list-item-content>
