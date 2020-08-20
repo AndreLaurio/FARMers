@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use DB;
 
 class User extends Authenticatable
 {
@@ -37,4 +38,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function scopeGetPendingAccounts(){
+        $query = DB::table('users as u')
+        ->leftJoin('cities as c', 'u.location', '=', 'c.city_id')
+        ->where('u.is_approved',0)
+        ->get();
+
+        return $query;
+    }
 }

@@ -2,9 +2,11 @@
      <v-container grid-list-md class="pop">
         <v-card class="rounded-xl" height="650">
         <v-layout row wrap class="mt-5">
-            <v-flex xs12 md6 class="pt-12">
-                    <!-- <v-img src="../assets/logo.svg" class="mx-auto mt-12" width="200"></v-img> -->
-                    <!-- <a href="https://pps.org.ph/"><h1 class="text-center mt-3 below-img">pps.org.ph</h1></a> -->
+            <v-flex xs12 md6 class="pt-12 mt-12">
+                    <v-img src="../assets/farmvest.png" class="mx-auto mt-12" width="200"></v-img>
+                    <div class="text-center mt-3">
+                        <h3>Farmers harvest, <br> Buyers Invest</h3>
+                    </div>
             </v-flex>
             <v-flex xs12 md6>
                 <v-card class="mx-auto rounded-xl mt-3 mb-3" max-width="500" v-if="registerSuccess == false">
@@ -70,7 +72,7 @@
                 <div v-if="registerSuccess == true" class="mt-12 pt-12">
                     <h1 class="valsuccess">Account Successfully Created !</h1>
                     <div class="mt-5">
-                        <h2>Dear Andre,</h2> 
+                        <h2>Dear {{dearName}},</h2> 
                     </div>
                     <div class="mt-5">
                         <p> <span class="ml-5">Please wait for the approval of your request.</span> <br>
@@ -166,6 +168,7 @@ export default {
                 min: v => v.length >= 8 || 'Min 8 characters',
             },
             show_password: false,
+            dearName:'',
             registration:true,
             registration_p2:false,
             registration_p3:false,
@@ -184,6 +187,7 @@ export default {
         register_p2(){
             this.registration = false
             this.registration_p2 = true
+            this.dearName = this.register_data.first_name  
         },
         register_p3(){
             this.registration = false

@@ -20,14 +20,14 @@
                         Home
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link>
+                <!-- <v-list-item link>
                     <v-list-item-action>
                         <v-icon color="green accent-4">mdi-face</v-icon>
                     </v-list-item-action>
                     <v-list-item-content>
                         Profile
                     </v-list-item-content>
-                </v-list-item>
+                </v-list-item> -->
                   <v-list-item link v-on:click="showOrders">
                     <v-list-item-action>
                         <v-icon color="green accent-4">mdi-cart</v-icon>
@@ -47,9 +47,9 @@
             </v-list>
         </v-navigation-drawer>
 
-        <v-app-bar app color="green accent-4" dark>
+        <v-app-bar app color="green darken-3" dark>
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-            <v-toolbar-title class="pop">FARMETS</v-toolbar-title>
+            <v-toolbar-title class="pop">FARMVEST</v-toolbar-title>
             <v-spacer></v-spacer>
             <h3 class="mr-12 linking">Stock Market</h3>
             <h3 class="mr-12 linking" @click="userArticles">Articles</h3>

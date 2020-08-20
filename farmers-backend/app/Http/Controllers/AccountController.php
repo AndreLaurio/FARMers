@@ -8,7 +8,7 @@ use App\User;
 class AccountController extends Controller
 {
     public function getPendingAccount(){
-        $pendingAccounts = User::where('is_approved',0)->get();
+        $pendingAccounts = User::getPendingAccounts();
         return response()->json($pendingAccounts);
     }
     

@@ -7,7 +7,7 @@
            <v-flex md12 xs12 class="text-right">
                  <v-dialog v-model="dialog" max-width="600">
                     <template v-slot:activator="{ on, attrs }">
-                    <v-btn class="primary" v-bind="attrs" v-on="on"> Add Article </v-btn>
+                    <v-btn class="success" rounded v-bind="attrs" v-on="on"> <v-icon size="17" class="pr-1">mdi-plus-thick</v-icon> Add Article </v-btn>
                     </template>
                     <v-card class="rounded-xl">
                         <v-card-title class="pt-5">Create Article</v-card-title>
