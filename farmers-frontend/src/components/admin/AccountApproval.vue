@@ -10,14 +10,14 @@
                 <v-expansion-panel-content>
                     <v-layout row wrap>
                         <v-flex>
-                            <div class="ml-8">
+                            <div class="ml-8 mt-4">
                                 Email: {{pAcct.email}} <br>
                                 Location: {{pAcct.city}}<br>
                                 Boundary: {{pAcct.boundary}}
                             </div>
                         </v-flex>
                         <v-flex>
-                            <!-- <h1>{{pAcct.valid_id}}</h1> -->
+                            <img :src="require(`../../assets/storage/images/valid_ids/${pAcct.valid_id_path}`)" class="previewImage" width="100px" height="100px">
                             <div class="text-right mr-12">
                                 <v-btn rounded @click="approveAccount(pAcct.user_id)" class="pl-6 pr-6 mt-5 mr-4 primary green accent-4"> Approve </v-btn>
                             </div>            
