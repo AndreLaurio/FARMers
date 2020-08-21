@@ -51,7 +51,7 @@
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
             <v-toolbar-title class="pop">FARMVEST</v-toolbar-title>
             <v-spacer></v-spacer>
-            <h3 class="mr-12 linking">Stock Market</h3>
+            <h3 class="mr-12 linking" @click="userStockMarket">Stock Market</h3>
             <h3 class="mr-12 linking" @click="userArticles">Articles</h3>
             <h3 class="mr-12 linking" @click="userNews">News</h3>
         </v-app-bar>
@@ -107,6 +107,9 @@ export default {
         },
         userArticles(){
             this.$router.push({ name: 'BuyerArticles'})
+        },
+        userStockMarket(){
+            this.$router.push({ name: 'BuyerStockMarket' })
         },
         home(){
             this.$router.push({ name: 'Buyer' })

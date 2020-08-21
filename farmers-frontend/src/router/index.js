@@ -15,6 +15,7 @@ import SellerArticles from '../views/seller/SellerArticles'
 import Buyer from '../views/buyer/BuyerHome'
 import BuyerNews from '../views/buyer/BuyerNews'
 import BuyerArticles from '../views/buyer/BuyerArticles'
+import BuyerStockMarket from '../views/buyer/BuyerStockMarket'
 
 Vue.use(VueRouter)
 
@@ -68,6 +69,11 @@ Vue.use(VueRouter)
     path: '/buyer/articles',
     name: 'BuyerArticles',
     component: BuyerArticles
+  },
+  {
+    path: '/buyer/stock-market',
+    name: 'BuyerStockMarket',
+    component: BuyerStockMarket
   },
   {
     path: '/seller/news',
