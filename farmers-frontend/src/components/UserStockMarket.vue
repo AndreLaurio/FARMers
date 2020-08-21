@@ -16,9 +16,9 @@
                     </thead>
                     <tbody>
                         <tr v-for="stock in stocks" :key="stock.stock_id">
-                            <td>{{ stock.date_start }} - {{ stock.date_end }}</td>
+                            <td>{{ stock.month }}</td>
                             <td>{{ stock.season }} </td>
-                            <td>{{ stock.value_start }} - {{ stock.value_end}} per {{stock.measurement}}</td>
+                            <td>{{stock.value_with_measurement}}</td>
                         </tr>
                     </tbody>
                     </template>
@@ -52,7 +52,7 @@ export default {
     },
     methods:{
         getStocks(){
-            axios.get('api/stocks').then(response =>{
+            axios.get('api/stock').then(response =>{
                 this.stocks = response.data
             })
         }
