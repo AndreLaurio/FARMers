@@ -97,8 +97,7 @@ Source: https://www.philstar.com/opinion/2019/09/17/1952474/plight-filipino-rice
 INSERT INTO stocks (measurement_id, season_id, product_name, date_start, date_end, value_start, value_end)
 VALUES (3, 1, 'Rice', '2019-07-01', '2020-07-31', 1099, 1099),
 (3, 1, 'Rice', '2020-06-01', '2020-06-30', 891, 891),
-(3, 1, 'Rice', '2020-07-01', '2020-07-31', 808, 891);
-
+(3, 1, 'Rice', '2020-07-01', '2020-07-31', 808, 808);
 
         
   

@@ -38,3 +38,5 @@ Route::get('/products/{user_id}', 'ProductController@getOwnProduct');
 Route::delete('/product/{product_id}', 'ProductController@delete');
 
 Route::get('/stocks', 'StockController@getStock');
+
+Route::get('/stock', 'StocksController@get');
