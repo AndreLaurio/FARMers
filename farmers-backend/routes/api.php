@@ -40,3 +40,6 @@ Route::delete('/product/{product_id}', 'ProductController@delete');
 Route::get('/stocks', 'StockController@getStock');
 
 Route::get('/stock', 'StocksController@get');
+Route::post('/stock', 'StockController@post');
+Route::get('/stock/measurements', 'StocksController@getMeasurements');
+Route::get('/stock/seasons', 'StocksController@getSeasons');
