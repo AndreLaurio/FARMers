@@ -12,7 +12,8 @@
                     <div class="text-center mt-5 mb-5">
                         {{product.product_name}} <br>
                         ₱ {{product.price}}<br> <br>
-                        <v-btn rounded class="success">Details</v-btn>
+                        <v-btn rounded class="primary mr-3">Details</v-btn>
+                        <v-btn rounded class="success">Inquire</v-btn>
                     </div>
                 </v-card>
             </v-row>
