@@ -177,7 +177,6 @@ export default {
             formData.append('total_stocks', this.product.total_stocks)
             formData.append('min_buyable_stocks', this.product.min_buyable_stocks)
 
-            console.log(this.product_img);
             axios.post('/api/product', formData, config
             ).then(response => {
                 // this.products.push({
