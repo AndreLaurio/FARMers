@@ -2,9 +2,8 @@
      <v-container grid-list-md class="pop">
         <v-card class="rounded-xl" height="650">
         <v-layout row wrap class="mt-5">
-            <v-flex xs12 md6 class="pt-12">
-                    <!-- <v-img src="../assets/logo.svg" class="mx-auto mt-12" width="200"></v-img> -->
-                    <!-- <a href="https://pps.org.ph/"><h1 class="text-center mt-3 below-img">pps.org.ph</h1></a> -->
+            <v-flex xs12 md6 class="pt-12 mt-12">
+                    <v-img src="../assets/farmvest.png" class="mx-auto mt-12" width="200"></v-img>
             </v-flex>
             <v-flex xs12 md6>
                 <v-card class="mx-auto rounded-xl mt-3 mb-3" max-width="500" v-if="registerSuccess == false">

@@ -5,21 +5,22 @@
             <v-expansion-panel class="mt-3" v-for="pAcct in pendingAccounts" v-bind:key="pAcct.user_id">
                 <v-expansion-panel-header> 
                     <span class="ml-5">{{pAcct.first_name}} {{pAcct.last_name}}</span>
-                    <v-spacer></v-spacer>
-                    <div>
-                        <span>Date: {{pAcct.created_at}}</span>
-                    </div>
+                    <span class="text-right mr-8">Date: {{pAcct.created_at.slice(0,10)}}</span>          
                 </v-expansion-panel-header>
                 <v-expansion-panel-content>
                     <v-layout row wrap>
                         <v-flex>
-                        email: {{pAcct.email}}
-                        location: {{pAcct.location}}
-                        boundary: {{pAcct.boundary}}
+                            <div class="ml-8">
+                                Email: {{pAcct.email}} <br>
+                                Location: {{pAcct.city}}<br>
+                                Boundary: {{pAcct.boundary}}
+                            </div>
                         </v-flex>
                         <v-flex>
-                            <h1>{{pAcct.valid_id}}</h1>
-                            <v-btn @click="approveAccount(pAcct.user_id)" class="pl-12 pr-12 mt-5 primary green accent-4"> Approve </v-btn>
+                            <!-- <h1>{{pAcct.valid_id}}</h1> -->
+                            <div class="text-right mr-12">
+                                <v-btn rounded @click="approveAccount(pAcct.user_id)" class="pl-6 pr-6 mt-5 mr-4 primary green accent-4"> Approve </v-btn>
+                            </div>            
                         </v-flex>
                     </v-layout>
                 </v-expansion-panel-content>

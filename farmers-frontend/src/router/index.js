@@ -26,11 +26,11 @@ Vue.use(VueRouter)
     name: 'Seller',
     component: Seller
   },
-  {
-    path: '/seller/products',
-    name: 'SellerProducts',
-    component: SellerProducts
-  },
+  // {
+  //   path: '/seller/products',
+  //   name: 'SellerProducts',
+  //   component: SellerProducts
+  // },
   {
     path: '/buyer',
     name: 'Buyer',

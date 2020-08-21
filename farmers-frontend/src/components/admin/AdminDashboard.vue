@@ -57,7 +57,7 @@
 
         <v-app-bar app color="green darken-3" dark>
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-            <v-toolbar-title class="pop">FARMETS</v-toolbar-title>
+            <v-toolbar-title class="pop">FARMVEST</v-toolbar-title>
             <v-spacer></v-spacer>
             <h3 class="mr-12 linking">Stock Market</h3>
             <h3 class="mr-12 linking" @click="openArticles">Articles</h3>
