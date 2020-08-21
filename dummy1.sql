@@ -6,3 +6,5 @@ VALUES (10, 'johnvincenttayong@gmail.com', '', 1, 'John Vincent', 'Tayong', '199
 UPDATE stocks SET value_start = 1099.67, value_end = 1099.67 WHERE value_start = 1099;
 UPDATE stocks SET value_start = 891.40, value_end = 891.40 WHERE value_start = 891;
 UPDATE stocks SET value_start = 808.55, value_end = 808.55 WHERE value_start = 808;
+
+UPDATE stocks SET date_end = '2019-07-31' WHERE date_start = '2019-07-01'

@@ -10,9 +10,7 @@ class StocksController extends Controller
     public function get(){
         $query = DB::select(DB::raw(
                 'SELECT CONCAT(
-                    DATE_FORMAT(s.date_start, "%M %Y"),
-                    " - ",
-                    DATE_FORMAT(s.date_end, "%M %Y")
+                    DATE_FORMAT(s.date_start, "%M %Y")
                   ) AS month,
                   se.season,
                   CONCAT(s.value_start, " - ", s.value_end) AS value,
