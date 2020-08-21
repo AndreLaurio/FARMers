@@ -6,11 +6,13 @@ import Admin from '../views/admin/AdminHome'
 import AdminApproval from '../views/admin/AdminApproval'
 import AdminArticles from '../views/admin/AdminArticles'
 import AdminNews from '../views/admin/AdminNews'
+import AdminStockMarket from '../views/admin/AdminStockMarket'
 
 import Seller from '../views/seller/SellerHome'
 import SellerProducts from '../views/seller/SellerProducts'
 import SellerNews from '../views/seller/SellerNews'
 import SellerArticles from '../views/seller/SellerArticles'
+import SellerStockMarket from '../views/seller/SellerStockMarket'
 
 import Buyer from '../views/buyer/BuyerHome'
 import BuyerNews from '../views/buyer/BuyerNews'
@@ -61,6 +63,11 @@ Vue.use(VueRouter)
     component: AdminNews
   },
   {
+    path:'/admin/manage-stockmarket',
+    name: 'AdminStockMarket',
+    component: AdminStockMarket
+  },
+  {
     path: '/buyer/news',
     name: 'BuyerNews',
     component: BuyerNews
@@ -84,7 +91,12 @@ Vue.use(VueRouter)
     path: '/seller/articles',
     name: 'SellerArticles',
     component: SellerArticles
-  }
+  },
+  {
+    path: '/seller/stock-market',
+    name: 'SellerStockMarket',
+    component: SellerStockMarket
+  },
   
 ]
 

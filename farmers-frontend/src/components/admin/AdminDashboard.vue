@@ -59,7 +59,7 @@
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
             <v-toolbar-title class="pop">FARMVEST</v-toolbar-title>
             <v-spacer></v-spacer>
-            <h3 class="mr-12 linking">Stock Market</h3>
+            <h3 class="mr-12 linking" @click="openStockMarket">Stock Market</h3>
             <h3 class="mr-12 linking" @click="openArticles">Articles</h3>
             <h3 class="mr-12 linking" @click="openNews">News</h3>
         </v-app-bar>
@@ -115,6 +115,9 @@ export default {
         },
         openNews(){
             this.$router.push({ name: 'AdminNews' })
+        },
+        openStockMarket(){
+             this.$router.push({ name: 'AdminStockMarket' })
         },
         home(){
             this.$router.push({ name: 'Admin' })
