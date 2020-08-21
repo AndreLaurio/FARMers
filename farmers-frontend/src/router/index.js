@@ -9,6 +9,8 @@ import AdminNews from '../views/admin/AdminNews'
 
 import Seller from '../views/seller/SellerHome'
 import SellerProducts from '../views/seller/SellerProducts'
+import SellerNews from '../views/seller/SellerNews'
+import SellerArticles from '../views/seller/SellerArticles'
 
 import Buyer from '../views/buyer/BuyerHome'
 import BuyerNews from '../views/buyer/BuyerNews'
@@ -66,7 +68,18 @@ Vue.use(VueRouter)
     path: '/buyer/articles',
     name: 'BuyerArticles',
     component: BuyerArticles
+  },
+  {
+    path: '/seller/news',
+    name: 'SellerNews',
+    component: SellerNews
+  },
+  {
+    path: '/seller/articles',
+    name: 'SellerArticles',
+    component: SellerArticles
   }
+  
 ]
 
 const router = new VueRouter({
