@@ -12,7 +12,7 @@
                         </div>
                     </v-list-item-content>
                 </v-list> 
-                <v-list-item link>
+                <v-list-item link @click="home">
                     <v-list-item-action>
                         <v-icon color="green accent-4">mdi-home</v-icon>
                     </v-list-item-action>
@@ -95,8 +95,11 @@ export default {
         products(){
             const name = 'SellerProducts'
             
-            if (this.$route.name !== name)
+            // // if (this.$route.name !== name)
                 this.$router.push({ name: name })
+        },
+        home(){
+            this.$router.push({ name: 'Seller' })
         }
     }
 }

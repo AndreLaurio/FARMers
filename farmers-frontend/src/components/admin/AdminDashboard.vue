@@ -12,7 +12,7 @@
                         </div>
                     </v-list-item-content>
                 </v-list> 
-                <v-list-item link>
+                <v-list-item link @click="home">
                     <v-list-item-action>
                         <v-icon color="green accent-4">mdi-home</v-icon>
                     </v-list-item-action>
@@ -115,6 +115,9 @@ export default {
         },
         openNews(){
             this.$router.push({ name: 'AdminNews' })
+        },
+        home(){
+            this.$router.push({ name: 'Admin' })
         }
     }
 }

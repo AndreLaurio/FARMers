@@ -11,6 +11,15 @@ class ProductController extends Controller
         return response()->json(Product::get());
     }
 
+    public function getOwnProduct(Request $request, $user_id){
+        $ownProduct = Product::where('seller_id',$user_id)->get();
+        return response()->json($ownProduct);
+    }
+
+    public function delete($product_id){
+        return response()->json(Product::destroy($product_id));
+    }
+
     public function post(Request $request){
         $product = new Product();
 

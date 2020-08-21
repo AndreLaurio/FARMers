@@ -1,6 +1,6 @@
 <template>
     <div>
-         <h1>Buyer View</h1>
+         <UserHome/>
         <v-main>
             <BuyerDashboard/>
         </v-main>
@@ -9,10 +9,12 @@
 
 <script>
 import BuyerDashboard from '@/components/buyer/BuyerDashboard.vue'
+import UserHome from '@/components/UserHome.vue'
+
 
 export default {
     components:{
-        BuyerDashboard
+        BuyerDashboard, UserHome
     }
 }
 </script>
