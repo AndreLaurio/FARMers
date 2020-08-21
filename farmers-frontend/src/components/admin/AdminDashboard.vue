@@ -20,14 +20,14 @@
                         Home
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link>
+                <!-- <v-list-item link>
                     <v-list-item-action>
                         <v-icon color="green accent-4">mdi-face</v-icon>
                     </v-list-item-action>
                     <v-list-item-content>
                         Profile
                     </v-list-item-content>
-                </v-list-item>
+                </v-list-item> -->
                 <v-list-item link v-on:click="accountApproval">
                     <v-list-item-action>
                         <v-icon color="green accent-4">mdi-account-supervisor-circle-outline</v-icon>
@@ -36,14 +36,14 @@
                         Account Approval
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link>
+                <!-- <v-list-item link>
                     <v-list-item-action>
                         <v-icon color="green accent-4">mdi-file-document-multiple</v-icon>
                     </v-list-item-action>
                     <v-list-item-content>
                         Reports
                     </v-list-item-content>
-                </v-list-item>
+                </v-list-item> -->
                 <v-list-item link v-on:click="logout">
                     <v-list-item-action>
                         <v-icon color="green accent-4">mdi-logout</v-icon>
