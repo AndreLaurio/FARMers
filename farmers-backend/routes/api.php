@@ -43,3 +43,6 @@ Route::get('/stock', 'StocksController@get');
 Route::post('/stock', 'StockController@post');
 Route::get('/stock/measurements', 'StocksController@getMeasurements');
 Route::get('/stock/seasons', 'StocksController@getSeasons');
+
+Route::post('/inquiry', 'InquiryController@post');
+Route::get('/inquiry/{product_id}', 'InquiryController@get');

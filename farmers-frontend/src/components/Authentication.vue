@@ -296,7 +296,7 @@ export default {
                              if(user_type == 1){
                                 this.$router.push({ name:'Seller'})
                             }else if(user_type == 2){
-                                console.log('buyer')
+                                this.$router.push({ name: 'Buyer' })
                             }else if(user_type == 3){
                                 this.$router.push({ name:'Admin'})
                             }

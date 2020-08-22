@@ -68,7 +68,33 @@
                         ₱ {{product.price}}<br> <br>
                         <v-btn class="primary mr-5">Details</v-btn>
                         <v-btn class="error" @click="removeProduct(product.product_id)">Remove</v-btn> <br> <br>
-                        <v-btn class="primary">View Offers</v-btn>
+                        <v-btn class="primary" @click.stop="dialog = true" @click="getInquiries(product.product_id)">View Offers</v-btn>
+                        <v-dialog v-model="dialog" max-width="500" class="rounded-xl">
+                            <v-card class="rounded-xl mx-auto" max-width="500">
+                                <v-card-title class="headline"> Inquiries</v-card-title>
+                                <v-card-text>
+                                    <v-simple-table>
+                                        <template v-slot:default>
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Date</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr v-for="inquiry in inquiries" :key="inquiry.id">
+                                                    <td>{{ inquiry.first_name }} {{ inquiry.last_name }}</td>
+                                                    <td>{{ inquiry.created_at.slice(0,10) }}</td>
+                                                </tr>
+                                            </tbody>
+                                        </template>
+                                    </v-simple-table>
+                                </v-card-text>
+                                <v-card-actions class="justify-center">
+                                        <v-btn class="primary mb-5 pl-5 pr-5"  @click.stop="dialog = false">Close</v-btn>
+                                </v-card-actions>
+                            </v-card>
+                        </v-dialog>
                     </div>
                 </v-card>
             </v-row>
@@ -124,6 +150,7 @@ export default {
     data(){
         return{
             products:[],
+            inquiries:[],
             product:{
                 product_name:'',
                 description:'',
@@ -136,7 +163,8 @@ export default {
             imageUrl:null,
             product_img:null,
             addProductDialog:false,
-            successAlert:''
+            successAlert:'',
+            dialog:false
         }
     },
     mounted(){
@@ -195,6 +223,13 @@ export default {
             this.imageUrl = URL.createObjectURL(file)
             this.product_img = e.target.files[0]
         },
+        getInquiries(product_id){
+            axios.get(`/api/inquiry/${product_id}`).then(response =>{
+                this.inquiries = response.data
+            }).catch(error => {
+                console.log(error.response.data)
+            })
+        }
     }
 }
 </script>

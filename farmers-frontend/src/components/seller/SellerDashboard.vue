@@ -112,7 +112,7 @@ export default {
             this.$router.push({ name: 'SellerArticles'})
         },
         userStockMarket(){
-            this.$router.push({ name: 'sellerStockMarket' })
+            this.$router.push({ name: 'SellerStockMarket' })
         },
         home(){
             this.$router.push({ name: 'Seller' })
